@@ -1,1 +1,5 @@
-<p>category-list works!</p>
+<ng-container *ngIf="(categories$ | async) as categories">
+    <div *ngFor="let item of categories.data;" >
+        <button (click)="onClickCategory(item)">{{item.name}}</button>
+    </div>
+</ng-container>

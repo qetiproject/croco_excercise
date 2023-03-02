@@ -25,7 +25,7 @@ export class ProviderListComponent implements OnInit{
   }
 
   getProviders() {
-    this.providers$ = this.providersService.getProviders('slot', 'desktop');
+    this.providers$ = this.providersService.getProviders();
   }
 
   onClickProvider(value: ProviderItem): void {

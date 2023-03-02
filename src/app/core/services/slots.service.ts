@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { SlotsByProvider } from '@core/models/slot.interface';
+import { SlotsByCategory, SlotsByProvider } from '@core/models/slot.interface';
 import { BASE_URL } from '@shared/shared.module';
-import { Observable, shareReplay, Subject, take, tap } from 'rxjs';
+import { map, Observable, shareReplay, Subject, take, tap } from 'rxjs';
 
 @Injectable()
 
 export class SlotsService {
 
   private slotsByProvider = new Subject();
+  private slotsByCategory = new Subject();
   
   constructor(
     private httpClient: HttpClient,
@@ -16,7 +17,7 @@ export class SlotsService {
   ) {}
   
 
-  getSlotsByProvider(provider: string, platform: string): Observable<SlotsByProvider> {
+  getSlotsByProvider(provider: string, platform: string = 'desktop'): Observable<SlotsByProvider> {
     return this.httpClient.get<SlotsByProvider>(`${this._baseUrl}/v2/slot/providers/${provider}?platform=${platform}`)
       .pipe(
         tap((_slots) => this.slotsByProvider.next(_slots)),
@@ -24,5 +25,15 @@ export class SlotsService {
         shareReplay()
       )
   }
+
+  getSlotCategories(games: string = 'games', category: string = ''): Observable<SlotsByCategory> {
+    return this.httpClient.get<SlotsByCategory>(`${this._baseUrl}/v2/slot/categories?include=${games}`)
+      .pipe(
+        tap((_slots) => this.slotsByCategory.next(_slots)),
+        take(1),
+        shareReplay()
+      )
+  }
+
 
 }

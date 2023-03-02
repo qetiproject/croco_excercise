@@ -1,7 +1,10 @@
+import { Categories } from "./category.interface";
+
 export interface SlotGame {
     game_id: number;
     name: string;
     provider: string;
+    providerName?: string;
     image: string;
     url: string;
     order: number;
@@ -22,3 +25,5 @@ export interface SlotItemProvider {
 }
 
 export type SlotsByProvider = {data: SlotItemProvider }
+
+export type SlotsByCategory = Categories
