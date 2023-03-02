@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit, Optional } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, Optional, SimpleChanges } from '@angular/core';
+import { ProviderItem } from '@core/models/provider.interface';
 import { Slots } from '@core/models/slot.interface';
 import { SlotsService } from '@core/services/slots.service';
 import { Observable } from 'rxjs';
@@ -18,12 +19,13 @@ export class SlotListComponent implements OnInit{
     @Optional() private slotsService: SlotsService
   ){}
 
-  ngOnInit(): void {
-    this.getSlotsByProvider();
+  ngOnInit(): void {}
+
+  getSlotsByProvider(provider: string): void {
+    this.slots$ = this.slotsService.getSlotsByProvider(`${provider}`, 'desktop')
   }
 
-  getSlotsByProvider(): void {
-    this.slots$ = this.slotsService.getSlotsByProvider('egt', 'desktop');
+  onProvider(value: ProviderItem) {
+    this.getSlotsByProvider(value.provider)
   }
-
 }

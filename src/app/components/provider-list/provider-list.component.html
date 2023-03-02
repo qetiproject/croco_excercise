@@ -1,5 +1,5 @@
 <ng-container *ngIf="(providers$ | async) as providers">
-    <div *ngFor="let provider of providers.data;" >
-        <p>{{provider.name}}</p>
+    <div *ngFor="let item of providers.data;" >
+        <button (click)="onClickProvider(item)">{{item.name}}</button>
     </div>
 </ng-container>

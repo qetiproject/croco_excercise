@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit, Optional } from '@angular/core';
-import { Providers } from '@core/models/provider.interface';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Optional, Output } from '@angular/core';
+import { ProviderItem, Providers } from '@core/models/provider.interface';
 import { ProvidersService } from '@core/services/providers.service';
 import { Observable } from 'rxjs';
 
@@ -14,6 +14,8 @@ export class ProviderListComponent implements OnInit{
 
   providers$!: Observable<Providers>;
   
+  @Output() providerItem = new EventEmitter<ProviderItem>;
+
   constructor(
    @Optional() private providersService: ProvidersService
   ) {}
@@ -26,4 +28,7 @@ export class ProviderListComponent implements OnInit{
     this.providers$ = this.providersService.getProviders('slot', 'desktop');
   }
 
+  onClickProvider(value: ProviderItem): void {
+    this.providerItem.emit(value);
+  }
 }

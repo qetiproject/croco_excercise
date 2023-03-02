@@ -1,9 +1,9 @@
-<app-provider-list></app-provider-list>
-<p>slot-list works!</p>
-<app-slot-item></app-slot-item>
-<!-- <ng-container *ngIf="(slots$ | async) as slots">
+<app-provider-list (providerItem)="onProvider($event)"></app-provider-list>
+<!-- <p>slot-list works!</p>
+<app-slot-item></app-slot-item> -->
+<ng-container *ngIf="(slots$ | async) as slots">
     <div *ngFor="let slot of slots.data.games;" >
         <h3>{{slot.name}}</h3>
         <p>{{slot.provider}}</p>
     </div>
-</ng-container> -->
+</ng-container>
