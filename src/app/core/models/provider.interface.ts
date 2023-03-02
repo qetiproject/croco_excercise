@@ -9,7 +9,7 @@ export interface ProviderItem {
     type: string;
     enabled: boolean;
     logo: string;
-    tags: Array<any>;
+    tags: Array<string>;
     gamesCount: number;
 }
 
