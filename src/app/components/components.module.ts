@@ -10,6 +10,10 @@ import { CategoryListComponent } from './category-list/category-list.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ProviderListComponent,
+    CategoryListComponent
   ]
 })
 export class ComponentsModule { }
