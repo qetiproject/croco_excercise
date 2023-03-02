@@ -1,1 +1,5 @@
-<p>provider-list works!</p>
+<ng-container *ngIf="(providers$ | async) as providers">
+    <div *ngFor="let provider of providers.data;" >
+        <p>{{provider.name}}</p>
+    </div>
+</ng-container>
