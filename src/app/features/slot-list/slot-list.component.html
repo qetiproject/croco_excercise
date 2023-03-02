@@ -9,8 +9,8 @@
     </div>
 </ng-container> -->
 <ng-container *ngIf="(slotsByCategory$ | async) as slots">
-    <div *ngFor="let slot of slots.data;" >
-        <h3>{{slot.games | json}}</h3>
-        <!-- <p>{{slot.provider}}</p> -->
+    <div *ngFor="let slot of slots[0].games" >
+        <h3>{{slot.name}}</h3>
+        <p>{{slot.provider}}</p>
     </div>
 </ng-container>

@@ -3,7 +3,7 @@ import { CategoryItem } from '@core/models/category.interface';
 import { ProviderItem } from '@core/models/provider.interface';
 import { SlotsByCategory, SlotsByProvider } from '@core/models/slot.interface';
 import { SlotsService } from '@core/services/slots.service';
-import { Observable, tap } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-slot-list',
@@ -15,7 +15,7 @@ import { Observable, tap } from 'rxjs';
 export class SlotListComponent{
   
   slotsByProvider$!: Observable<SlotsByProvider>;
-  slotsByCategory$!: Observable<SlotsByCategory>;
+  slotsByCategory$!: Observable<Array<CategoryItem>>;
 
   constructor(
     @Optional() private slotsService: SlotsService
@@ -26,7 +26,12 @@ export class SlotListComponent{
   }
 
   getSlotsByCategory(category: string) : void {
-    this.slotsByCategory$ = this.slotsService.getSlotCategories(category)
+    this.slotsByCategory$ = this.slotsService.getSlotCategories().pipe(
+      map(slots => {
+        const filteredSlotsByCategory = slots.data.filter(x => x.category === category ?? x)
+        return filteredSlotsByCategory;
+      })
+    )
   }
 
   onProvider(value: ProviderItem) {
@@ -34,7 +39,6 @@ export class SlotListComponent{
   }
 
   onCategory(value: CategoryItem) {
-    console.log(value, 'category')
     this.getSlotsByCategory(value.category)
 
   }

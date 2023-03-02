@@ -26,8 +26,8 @@ export class SlotsService {
       )
   }
 
-  getSlotCategories(games: string = 'games', category: string = ''): Observable<SlotsByCategory> {
-    return this.httpClient.get<SlotsByCategory>(`${this._baseUrl}/v2/slot/categories?include=${games}`)
+  getSlotCategories(games: string = 'games'): Observable<{data: SlotsByCategory}> {
+    return this.httpClient.get<{data: SlotsByCategory}>(`${this._baseUrl}/v2/slot/categories?include=${games}`)
       .pipe(
         tap((_slots) => this.slotsByCategory.next(_slots)),
         take(1),

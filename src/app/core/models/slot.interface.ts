@@ -1,4 +1,4 @@
-import { Categories } from "./category.interface";
+import { CategoryItem } from "./category.interface";
 
 export interface SlotGame {
     game_id: number;
@@ -26,4 +26,4 @@ export interface SlotItemProvider {
 
 export type SlotsByProvider = {data: SlotItemProvider }
 
-export type SlotsByCategory = Categories
+export type SlotsByCategory = Array<CategoryItem>
