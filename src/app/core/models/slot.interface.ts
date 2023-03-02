@@ -10,7 +10,7 @@ export interface SlotGame {
     image2: string;
 }
 
-export interface SlotItem {
+export interface SlotItemProvider {
     type: string;
     provider: string;
     iframeW: string;
@@ -21,4 +21,4 @@ export interface SlotItem {
     games: Array<SlotGame>;
 }
 
-export type Slots = {data: SlotItem }
+export type SlotsByProvider = {data: SlotItemProvider }
