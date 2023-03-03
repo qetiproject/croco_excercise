@@ -1,0 +1,6 @@
+.slotWrapper {
+    display: grid;
+	grid-template-columns: repeat(7, 1fr);
+    row-gap: 20px;
+    column-gap: inherit;
+}

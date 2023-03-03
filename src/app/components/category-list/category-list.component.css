@@ -5,6 +5,7 @@
 .title {
     font-size: 20px;
     padding: 10px 0;
+    color: #fff;
 }
 
 .categoryItem {
@@ -20,7 +21,7 @@
 }
 
 .categoryData {
-    display: inline;
+    display: inline-block;
     padding: 17px 22px 17px 10px;
     background: #272D36;
 }

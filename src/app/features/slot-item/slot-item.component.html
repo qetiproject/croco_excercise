@@ -1,4 +1,14 @@
-<div *ngFor="let slot of games;" >
-    <h3>{{slot.name}}</h3>
-    <p>{{slot.provider}}</p>
-</div>
+<li 
+    *ngFor="let slot of games;" 
+    class="slotItem"
+>
+    <div class="img">
+        <img 
+           
+            [src]="slot.image" 
+            alt={{slot.name}}
+        />
+    </div>
+    <h3 class="name">{{slot.name}}</h3>
+    <button class="playBtn">Play</button>
+</li>

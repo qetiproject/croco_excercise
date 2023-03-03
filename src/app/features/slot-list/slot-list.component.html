@@ -1,8 +1,8 @@
 <app-provider-list (providerItem)="onProvider($event)"></app-provider-list>
-<app-category-list (categoryItem)="onCategory($event)"></app-category-list>
-<ng-container *ngIf="(slotsByProvider$ | async) as slots">
-    <app-slot-item [games]="slots.data.games"></app-slot-item>
-</ng-container>
-<ng-container *ngIf="(slotsByCategory$ | async) as slots">
+<!-- <app-category-list (categoryItem)="onCategory($event)"></app-category-list> -->
+<ul *ngIf="(slotsByProvider$ | async) as slots" >
+    <app-slot-item [games]="slots.data.games" class="slotWrapper"></app-slot-item>
+</ul>
+<ul *ngIf="(slotsByCategory$ | async) as slots">
     <app-slot-item [games]="slots[0].games"></app-slot-item>
-</ng-container>
+</ul>

@@ -1,10 +1,11 @@
 .providersContainer {
-    padding: 10px 0;
+    margin: 10px 0;
 }
 
 .title {
     font-size: 20px;
     padding: 10px 0;
+    color: #fff;
 }
 
 .providerItem {
@@ -20,7 +21,7 @@
 }
 
 .providerData {
-    display: inline;
-    padding: 17px 22px;
+    display: inline-block;
+    padding: 17px 22px 17px 10px;
     background: #272D36;
 }

@@ -1,11 +1,11 @@
 <section class="providersContainer">
     <h1 class="title">Filter Slots By Provider</h1>
-    <ng-container *ngIf="(providers$ | async) as providers" >
-        <div *ngFor="let item of providers.data.slice(0, 15);" class="providerData" >
+    <ul *ngIf="(providers$ | async) as providers" >
+        <li *ngFor="let item of providers.data.slice(0, 15);" class="providerData" >
             <p 
                 class="providerItem"
                 (click)="onClickProvider(item)"
             >{{item.name}}</p>
-        </div>
-    </ng-container>
+        </li>
+    </ul>
 </section>

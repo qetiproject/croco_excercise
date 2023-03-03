@@ -1,0 +1,49 @@
+.img {
+   width: 230px;
+   height: 140px;
+}
+
+.img img{
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    margin: 0 auto;
+}
+.slotItem {
+   width: 100%;
+   max-width: 216px;
+   overflow: hidden;
+   position: relative;
+}
+
+.name {
+    font-family: 'Neue Croco sans Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    color: #FFFFFF;
+    padding: 15px;
+    background: #252B33;
+}
+
+.slotItem:hover {
+    opacity: 0.7;
+    background: #454D57;
+}
+
+.slotItem:hover .playBtn {
+    visibility: visible;
+}
+
+.playBtn {
+    visibility: hidden;
+    border: none;
+    color: #fff;
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 30%;
+    bottom: 50%;
+    background: #15AF44;
+}
