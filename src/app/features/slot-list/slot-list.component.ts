@@ -16,6 +16,8 @@ export class SlotListComponent{
   
   slotsByProvider$!: Observable<SlotsByProvider>;
   slotsByCategory$!: Observable<Array<CategoryItem>>;
+  providerName: string = '';
+  categoryName: string = '';
 
   constructor(
     @Optional() private slotsService: SlotsService
@@ -35,10 +37,14 @@ export class SlotListComponent{
   }
 
   onProvider(value: ProviderItem) {
+    this.providerName = value.provider;
+    this.categoryName = '';
     this.getSlotsByProvider(value.provider)
   }
 
   onCategory(value: CategoryItem) {
+    this.categoryName = value.category;
+    this.providerName = '';
     this.getSlotsByCategory(value.category)
 
   }
