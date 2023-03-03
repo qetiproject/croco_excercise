@@ -1,5 +1,11 @@
-<ng-container *ngIf="(providers$ | async) as providers">
-    <div *ngFor="let item of providers.data;" >
-        <button (click)="onClickProvider(item)">{{item.name}}</button>
-    </div>
-</ng-container>
+<section class="providersContainer">
+    <h1 class="title">Filter Slots By Provider</h1>
+    <ng-container *ngIf="(providers$ | async) as providers" >
+        <div *ngFor="let item of providers.data.slice(0, 15);" class="providerData" >
+            <p 
+                class="providerItem"
+                (click)="onClickProvider(item)"
+            >{{item.name}}</p>
+        </div>
+    </ng-container>
+</section>

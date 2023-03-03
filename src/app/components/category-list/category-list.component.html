@@ -1,5 +1,11 @@
-<ng-container *ngIf="(categories$ | async) as categories">
-    <div *ngFor="let item of categories.data;" >
-        <button (click)="onClickCategory(item)">{{item.name}}</button>
-    </div>
-</ng-container>
+<section class="categoriesContainer">
+    <h1 class="title">Filter Slots By Category</h1>
+    <ng-container *ngIf="(categories$ | async) as categories">
+        <div *ngFor="let item of categories.data.slice(0, 10);" class="categoryData">
+            <p 
+                class="categoryItem"    
+                (click)="onClickCategory(item)"
+            >{{item.name}}</p>
+        </div>
+    </ng-container>    
+</section>

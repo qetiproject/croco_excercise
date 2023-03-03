@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { SlotGame } from '@core/models/slot.interface';
 
 @Component({
   selector: 'app-slot-item',
@@ -6,6 +7,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./slot-item.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SlotItemComponent {
+export class SlotItemComponent{
+ 
+  @Input() games!: Array<SlotGame>;
 
 }

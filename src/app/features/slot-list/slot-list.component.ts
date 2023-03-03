@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, Optional, SimpleChanges } from '@angular/core';
 import { CategoryItem } from '@core/models/category.interface';
 import { ProviderItem } from '@core/models/provider.interface';
-import { SlotsByCategory, SlotsByProvider } from '@core/models/slot.interface';
+import { SlotsByProvider } from '@core/models/slot.interface';
 import { SlotsService } from '@core/services/slots.service';
 import { map, Observable } from 'rxjs';
 

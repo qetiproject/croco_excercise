@@ -1,0 +1,26 @@
+.providersContainer {
+    padding: 10px 0;
+}
+
+.title {
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+.providerItem {
+    font-family: 'Neue Croco sans Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    color: #D9E3EF;
+    border: none;
+    display: inline;
+    cursor: pointer;
+}
+
+.providerData {
+    display: inline;
+    padding: 17px 22px;
+    background: #272D36;
+}
